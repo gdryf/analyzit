@@ -6,7 +6,7 @@
 ![Coverage Status](https://raw.githubusercontent.com/gdryf/analyzit/main/assests/coverage-badge.svg)
 
 <h1 align="center">
-analyzit
+AnalyzIt
 </h1>
 
 <br>
