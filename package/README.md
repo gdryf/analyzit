@@ -1,4 +1,4 @@
-![Project Logo](https://raw.githubusercontent.com/gdryf/analyzit/main/assets/banner.png)
+![Project Logo](https://raw.githubusercontent.com/gdryf/analyzit/main/assets/logo.png)
 
 ![Coverage Status](https://raw.githubusercontent.com/gdryf/analyzit/main/assests/coverage-badge.svg)
 
