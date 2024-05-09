@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 9fb0443
+_src_path: gh:schwallergroup/copier-liac-minimal
+author_email: gillian.dreyfus@epfl.ch
+author_name: Gillian
+github_org: gdryf
+package_name: analyzit_cosmetics
+project_name: analyzit
+short_description: Analysis of the composition of cosmetics and tracking of how dangerous
+    are the products used by the user.
