@@ -1,4 +1,4 @@
-![Project Logo]((https://github.com/gdryf/analyzit_package/blob/ch200/package/assets/logo.png))
+![Project Logo](https://github.com/gdryf/analyzit_package/blob/ch200/package/assets/logo.png)
 
 ![Coverage Status](https://raw.githubusercontent.com/gdryf/analyzit/main/assests/coverage-badge.svg)
 
