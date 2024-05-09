@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://github.com/gdryf/analyzit_package/blob/ch200/package/assets/logo.png" alt="Project Logo" style="display: block; margin-left: auto; margin-right: auto;">
+   <img src="https://github.com/gdryf/analyzit/blob/ch200/package/assets/logo_maj.png" alt="Project Logo" style="display: block; margin-left: auto; margin-right: auto;">
 </p>
 
 
