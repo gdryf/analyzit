@@ -1,4 +1,6 @@
 <p align="center">
+   <img src="https://raw.githubusercontent.com/gdryf/analyzit/main/assets/logo.png" alt="Project Logo" style="display: block; margin-left: auto; margin-right: auto;">
+</p>
 ![Project Logo](https://github.com/gdryf/analyzit_package/blob/ch200/package/assets/logo.png)
 
 ![Coverage Status](https://raw.githubusercontent.com/gdryf/analyzit/main/assests/coverage-badge.svg)
