@@ -1,5 +1,3 @@
-
-
 def search_ingredients(barcode : str, csv_file : str) -> list:
     """
     Return a list that contains the ingredients corresponding to the barcode entered.
@@ -30,7 +28,6 @@ def search_ingredients(barcode : str, csv_file : str) -> list:
             ingredients_str = row['ingredients_text'].iloc[0] # Take into account the first value in the row of the ingredients 
             ingredients = ingredients_str.split(", ") # Make a list out of the series of ingredients which are seprated by a coma
             return ingredients
-
 
 def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
      """
