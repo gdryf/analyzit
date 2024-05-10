@@ -12,7 +12,7 @@ AnalyzIt
 <br>
 
 
-Analysis of the composition of cosmetics and tracking of how dangerous are the products entered by the user.
+Analysis of the composition of cosmetics, customizable grading system of their dangers and tracking of the grades of products entered by the user.
 
 ## 🔥 Usage
 
