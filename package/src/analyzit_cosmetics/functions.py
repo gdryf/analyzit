@@ -31,9 +31,9 @@ def search_ingredients(barcode : str, csv_file : str) -> list:
             ingredients = ingredients_str.split(", ") # Make a list out of the series of ingredients which are seprated by a coma
             return ingredients
         else:
-            return "No ingredients found for this barcode."
+            return "No ingredients found for this barcode." # Handles the possibility of not finding ingredients for a barcode
     except Exception as e:
-        return f"An error occurred while loading the file or during the search : {e}"
+        return f"An error occurred while loading the file or during the search : {e}" # Handles other errors : not finding a file/unsuccessful search
             
 
 
