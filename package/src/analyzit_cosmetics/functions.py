@@ -32,7 +32,6 @@ def search_ingredients(barcode : str, csv_file : str) -> list:
             return ingredients
 
 
-
 def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
      """
     Returns a dictionary that contains the dangerous ingredients corresponding to the barcode entered 
