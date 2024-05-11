@@ -30,6 +30,11 @@ def search_ingredients(barcode : str, csv_file : str) -> list:
             ingredients_str = row['ingredients_text'].iloc[0] # Take into account the first value in the row of the ingredients 
             ingredients = ingredients_str.split(", ") # Make a list out of the series of ingredients which are seprated by a coma
             return ingredients
+        else:
+            return "No ingredients found for this barcode."
+    except Exception as e:
+        return f"An error occurred while loading the file or during the search : {e}"
+            
 
 
 def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
