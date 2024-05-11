@@ -87,13 +87,12 @@ def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
         # Check if ingredients are present in the compound name column
         found = dangers[dangers['cmpdname'] == ingredient_lower]
         
-        # If not found, heck if ingredients are present in the compound synonym column
+        # If not found, check if ingredients are present in the compound synonym column
         if found.empty:
             found = dangers[dangers['cmpdsynonym'] == ingredient_lower]
         
         # If a dangerous coumpound is found, add it to the dictionary with its type(s) of danger
         if not found.empty:
-            # Il est possible qu'un ingrédient ait plusieurs entrées de dangers
             dangerous_ingredients[ingredient] = found['dangers'].tolist()
     
     return dangerous_ingredients
