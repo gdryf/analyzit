@@ -1,5 +1,7 @@
 import os
 import pytest
+import csv
+import pandas as pd
 from src.analyzit_cosmetics import search_ingredients
 def test_search_ingredients():
     # Test 1 : if the barcode is found
