@@ -1,4 +1,5 @@
-
+import csv
+import pandas as pd
 
 def search_ingredients(barcode : str, csv_file : str) -> list:
     """
