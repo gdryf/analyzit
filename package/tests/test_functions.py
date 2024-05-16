@@ -1,5 +1,5 @@
 import pytest
-from analyzit_cosmetics import search_ingredients
+from src.analyzit_cosmetics import search_ingredients
 def test_search_ingredients():
     # Test 1 : if the barcode is found
     assert search_ingredients('3014230002601',"combined_extraction_database_fren.csv") == ['Aqua', 'Hydrogenated Starch Hydrolysate', 'Hydrated Silica', 'Zinc Citrate', 'Sodium Lauryl Sulfate', 'Aroma', 'Cellulose Gum', 'Sodium Fluoride', 'Sodium Saccharin', 'Mentha Arvensis Leaf Oil', 'Mentha Piperita Oil', 'Mentha Spicata Flower/Leaf/Stem Oil', 'CI 42051.'], "Test 1 failed "
@@ -8,7 +8,7 @@ def test_search_ingredients():
     # Test 3 : if another error occurs ( file not found or search unsucessful)
     assert search_ingredients('123456', 'inexistant_file.csv') == "An error occurred while loading the file or during the search : [Errno 2] No such file or directory: 'inexistant_file.csv'",  "Test 3 failed "
 
-from analyzit_cosmetics import danger_list
+from src.analyzit_cosmetics import danger_list
 def test_danger_list():
     # Test 1 : if a dangerous compound is found in the list of ingredients (one danger) : 
     assert danger_list ('3014230002601', "combined_extraction_database_fren.csv","database_danger_complete.csv") == {'Sodium Fluoride': ['Carcinogenic']}, "Test 1 failed "
