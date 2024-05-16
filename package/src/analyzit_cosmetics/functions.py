@@ -96,6 +96,6 @@ def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
         if not found.empty:
             dangerous_ingredients[ingredient] = found['dangers'].tolist()
     
-        return dangerous_ingredients
+    return dangerous_ingredients
        
    
