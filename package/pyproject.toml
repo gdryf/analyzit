@@ -8,8 +8,8 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
 description = "Analysis of the composition of cosmetics and tracking of how dangerous are the products used by the user."
-dependencies = [ "rdkit","pandas>=1.0.0", "csv"
-    # "rdkit",
+dependencies = [ "rdkit","pandas>=1.0.0",
+   
 ]
 authors = [
     {name = "Gillian", email = "gillian.dreyfus@epfl.ch"}
