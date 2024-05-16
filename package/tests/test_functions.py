@@ -1,3 +1,4 @@
+import pytest
 from analyzit_cosmetics.functions import search_ingredients
 def test_search_ingredients():
     # Test 1 : if the barcode is found
