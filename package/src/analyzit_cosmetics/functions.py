@@ -98,5 +98,5 @@ def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
             return dangerous_ingredients
         else:
             return "No ingredients found for this barcode." # Handles the possibility of not finding ingredients for a barcode
-    except Exception as e:
-        return f"An error occurred while loading the file or during the search : {e}" # Handles other errors : not finding a file/unsuccessful search
+        except Exception as e:
+            return f"An error occurred while loading the file or during the search : {e}" # Handles other errors : not finding a file/unsuccessful search
