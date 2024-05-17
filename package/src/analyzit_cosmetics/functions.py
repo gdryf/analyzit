@@ -124,7 +124,7 @@ def amount_dangers(dangerous_ingredients : dict, grade_paraben : int, grade_carc
     counting = {
         'Paraben': 0,
         'Carcinogenic': 0,
-        'Endocrin': 0
+        'Endocrine': 0
         }
     # Handles the case of an equal priority given by the user to every type of danger
     if grade_paraben == grade_carcinogenic == grade_endocrine : 
