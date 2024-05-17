@@ -98,4 +98,62 @@ def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
     
     return dangerous_ingredients
        
-   
+def amount_dangers(dict):
+
+    counting = {
+        'Paraben': 0,
+        'Carcinogenic': 0,
+        'Endocrin': 0
+        }
+    if grade_paraben == grade_carcinogenic == grade_endocrine : 
+         for produit, categories in dangerous_ingredients.items():
+            for category in categories:
+                  if  'Paraben' in category:
+                        counting['Paraben'] += 1
+                  elif  'Carcinogenic'  in category:
+                        counting['Carcinogenic'] += 1
+                  elif 'Endocrine' in category:
+                       counting['Endocrine'] += 1
+        
+
+    else : 
+        grade_max = max(grade_paraben,grade_carcinogenic ,grade_endocrine)
+        grade_min = min(grade_paraben,grade_carcinogenic ,grade_endocrine)
+        grades = [grade_paraben, grade_carcinogenic, grade_endocrine]
+        med_grade = sum(grades) - grade_min - grade_max
+
+        category_max = ""
+        if grade_max == grade_paraben:
+             category_max = "Paraben"
+        elif grade_max == grade_carcinogenic:
+            category_max = "Carcinogenic"
+        elif grade_max == grade_endocrine:
+            category_max = "Endocrine"
+
+        category_min = ""
+        if grade_min  == grade_paraben:
+            category_min = "Paraben"
+        elif grade_min  == grade_carcinogenic:
+            category_min = "Carcinogenic"
+        elif grade_min  == grade_endocrine:
+            category_min = "Endocrine"
+
+            category_med = ""
+        if med_grade == grade_paraben:
+            category_med = "Paraben"
+        elif med_grade == grade_carcinogenic:
+            category_med = "Carcinogenic"
+        elif med_grade == grade_endocrine:
+            category_med = "Endocrine"
+    
+        # Incrémenter le compteur de la catégorie avec la note la plus élevée
+        for product, categories in dangerous_ingredients.items():
+            for category in categories:
+                  if category_max in category:
+                        counting[category_max] += 1
+                  elif  category_med  in category:
+                        counting[category_med] += 1
+                  elif category_min in category:
+                       counting[category_min] += 1
+
+    return counting
