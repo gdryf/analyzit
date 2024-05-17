@@ -1,4 +1,4 @@
-import os
+
 import pytest
 from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers
 def test_search_ingredients():
@@ -10,14 +10,12 @@ def test_search_ingredients():
     assert search_ingredients('123456', 'inexistant_file.csv') == "An error occurred while loading the file or during the search : [Errno 2] No such file or directory: 'inexistant_file.csv'",  "Test 3 failed "
     
 def test_danger_list():
-    path_to_database1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv'))
-    path_to_database2 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_dangers.csv'))
     # Test 1 : if a dangerous compound is found in the list of ingredients (one danger) : 
-    assert danger_list ('3014230002601',path_to_database1,path_to_database2) == {'Sodium Fluoride': ['Carcinogenic']}, "Test 1 failed "
+    assert danger_list ('3014230002601') == {'Sodium Fluoride': ['Carcinogenic']}, "Test 1 failed "
     # Test 2 : if a dangerous compound is found in the list of ingredients (various dangers) : 
-    assert danger_list ('667556796483', path_to_database1,path_to_database2) == {'stearic acid': ['Carcinogenic'], 'glycerin': ['Carcinogenic'], 'methylparaben': ['Paraben'], 'propylparaben': ['Paraben'], 'butylparaben': ['Carcinogenic, Paraben'], 'benzyl alcohol': ['Carcinogenic'], 'coumarin': ['Carcinogenic']} , "Test 2 failed "
+    assert danger_list ('667556796483') == {'stearic acid': ['Carcinogenic'], 'glycerin': ['Carcinogenic'], 'methylparaben': ['Paraben'], 'propylparaben': ['Paraben'], 'butylparaben': ['Carcinogenic, Paraben'], 'benzyl alcohol': ['Carcinogenic'], 'coumarin': ['Carcinogenic']} , "Test 2 failed "
     # Test 3 : in the case where the barcode isn't found in the database : 
-    assert danger_list ('999999', path_to_database1,path_to_database2) == "No ingredients found for this barcode." , "Test 3 failed "
+    assert danger_list ('999999') == "No ingredients found for this barcode." , "Test 3 failed "
     # Test 4 : if one of the csv files isn't found : 
     assert danger_list ('999999', 'inexistant_file1.csv','inexistant_file2.csv') == "An error occurred while loading the file or during the search : [Errno 2] No such file or directory: 'inexistant_file1.csv'", "Test 4 failed "
 
