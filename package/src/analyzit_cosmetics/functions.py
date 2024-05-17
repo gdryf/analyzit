@@ -53,7 +53,7 @@ def danger_list(barcode : str,csv_file1 = os.path.abspath(os.path.join(os.path.d
     --------
     >>> danger_list ("12345", database1.csv, database2.csv)
     {'compound1' : [danger1,danger2] , 'compound2' : [danger1]}
-    """)
+    """
     # Uses the function search_ingredients to access the list of ingredients in the barcode database
     ingredients = search_ingredients(barcode)
 
