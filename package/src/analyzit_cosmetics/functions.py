@@ -25,7 +25,7 @@ def search_ingredients(barcode : str, csv_file1 : str) -> list:
     ['A','B','C']
     """
     try:
-        df = pd.read_csv(csv_file, encoding='utf-8', dtype={'code': str}) # Allows to access the data in the csv file
+        df = pd.read_csv(csv_file1, encoding='utf-8', dtype={'code': str}) # Allows to access the data in the csv file
         row = df[df['code'] == barcode] # Accesses to the values of the barcodes in the csv file
         if not row.empty:  # Check if the barcode has a list of ingredients in the database
             ingredients_str = row['ingredients_text'].iloc[0] # Take into account the first value in the row of the ingredients 
