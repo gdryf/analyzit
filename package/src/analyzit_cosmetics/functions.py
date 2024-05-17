@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 import os
 
-def search_ingredients(barcode : str,  csv_file1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv')) : file) -> list:
+def search_ingredients(barcode : str,  csv_file1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv'))) -> list:
     """
     Return a list that contains the ingredients corresponding to the barcode entered.
 
@@ -34,7 +34,7 @@ def search_ingredients(barcode : str,  csv_file1 = os.path.abspath(os.path.join(
     except Exception as e:
         return f"An error occurred while loading the file or during the search : {e}" # Handles other errors : not finding a file/unsuccessful search
 
-def danger_list(barcode : str,csv_file1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv')) : file, sv_file2 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_dangers.csv'))  ) -> dict:
+def danger_list(barcode : str,csv_file1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv')), sv_file2 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_dangers.csv'))) -> dict:
     """
     Returns a dictionary that contains the dangerous ingredients corresponding to the barcode entered 
     with their corresponding types of dangers using the function search_ingredients.
