@@ -1,7 +1,7 @@
 import csv
 import pandas as pd
 import os
-def search_ingredients(barcode : str,  path_to_database1 = None) -> list:
+def search_ingredients(barcode : str,  path_to_database1 = None : str) -> list:
     """
     Return a list that contains the ingredients corresponding to the barcode entered.
 
@@ -38,7 +38,7 @@ def search_ingredients(barcode : str,  path_to_database1 = None) -> list:
     except Exception as e:
         return f"An error occurred while loading the file or during the search : {e}" # Handles other errors : not finding a file/unsuccessful search
 
-def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
+def danger_list(barcode : str,  path_to_database1 = None : str,  path_to_database2 = None : str) -> dict:
     """
     Returns a dictionary that contains the dangerous ingredients corresponding to the barcode entered
     with their corresponding types of dangers using the function search_ingredients.
@@ -47,10 +47,10 @@ def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
     ----------
     barcode : str
         A number string representing a barcode of a cosmetic.
-    csv_file1 : str
+    path_to_database1 : str
         One of our databases which contains barcodes in a row named "code" and
         ingredients of the barcode product in a row named "ingredients_text".
-    csv_file2 : str
+    path_to_database2 : str
         Another one of our databases which contains names of dangerous compounds in the column "cmpdname",
         synonyms of those compounds in "cmpdsynonym", and their type(s) of dangers in the column "dangers" (Paraben, Carcinogenic, or Endocrine).
 
@@ -64,14 +64,18 @@ def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
     >>> danger_list("12345", "database1.csv", "database2.csv")
     {'compound1': ['danger1', 'danger2'], 'compound2': ['danger1']}
     """
+     if path_to_database1 is None :
+        path_to_database1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'database_products.csv'))
+     if path_to_database2 is None :
+        path_to_database2 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'database_dangers.csv'))
     # Uses the function search_ingredients to access the list of ingredients in the barcode database
-    ingredients = search_ingredients(barcode, csv_file1)
+    ingredients = search_ingredients(barcode, path_to_database1)
     # Checks if search_ingredients returned an error, if so, return the error
     if isinstance(ingredients, str):  
             return ingredients
         
     # Accesses another databse containing chemicals and their dangers
-    dangers = pd.read_csv(csv_file2)
+    dangers = pd.read_csv(path_to_database2)
     # Convert all of the names of chemicals and synonyms in lower case so that the comparison succeeds 
     dangers['cmpdname'] = dangers['cmpdname'].str.lower()
     dangers['cmpdsynonym'] = dangers['cmpdsynonym'].str.lower()
