@@ -27,8 +27,8 @@ from src.analyzit_cosmetics import amount_dangers
 def test_amount_dangers():
     dangerous_ingredients = {'stearic acid': ['Carcinogenic'], 'glycerin': ['Carcinogenic'], 'methylparaben': ['Paraben'], 'propylparaben': ['Paraben'], 'butylparaben': ['Carcinogenic, Paraben'], 'benzyl alcohol': ['Carcinogenic'], 'coumarin': ['Carcinogenic'], 'test' : ['Endocrine']}
     # Test 1 : if the user decides to apply the same order of priority for all the types of danger
-    assert amount_dangers (dangerous_ingredients,3,3,3) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrin': 1}, "Test 1 failed"
+    assert amount_dangers (dangerous_ingredients,3,3,3) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 1 failed"
     # Test 2 : if the user decides to apply different order of priorities, prioritizes the count of the most important type of danger
-    assert amount_dangers (dangerous_ingredients,2,5,4) == {'Paraben': 2, 'Carcinogenic': 5, 'Endocrin': 1}, "Test 2 failed"
+    assert amount_dangers (dangerous_ingredients,2,5,4) == {'Paraben': 2, 'Carcinogenic': 5, 'Endocrine': 1}, "Test 2 failed"
     # Test 3 : 
-    assert amount_dangers (dangerous_ingredients,3,4,1) == {'Paraben': 2, 'Carcinogenic': 5, 'Endocrin': 1}, "Test 2 failed"
+    assert amount_dangers (dangerous_ingredients,3,4,1) == {'Paraben': 2, 'Carcinogenic': 5, 'Endocrine': 1}, "Test 2 failed"
