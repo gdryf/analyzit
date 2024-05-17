@@ -184,3 +184,47 @@ def amount_dangers(dangerous_ingredients : dict, grade_paraben : int, grade_carc
     return counting # Returns the dictionary containing the types of danger and their counts
 
     return counting # Returns the dictionary containing the types of danger and their counts
+
+
+def coefficient(grade_substance : int)-> int:
+    """
+    Returns an integer that corresponds to the coefficient of the substance.
+    Using the grade of a substance we calculate an integer that is needed to calculate the grade (another function)
+
+    Parameters 
+    ----------
+    grade_substance : int
+        The grade provided by the user for a certain substance within Paraben, Endocrin and Carcinogenic. 
+        The grade define the importance of the substance for the user and is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot)
+    
+    
+    Returns 
+    -------
+    int 
+      A integer corresponding to the coefficient of the substance
+
+    Examples 
+    --------
+    >>> coefficient (3)
+    1
+    >>> coefficient (5)
+    2
+    """
+    
+    if type(grade_substance) ==int:
+        if 1 <=grade_substance <= 5:
+            if grade_substance==1:
+                coef=0.5
+            if grade_substance==2:
+                coef = 0.75
+            if grade_substance==3:
+                coef=1
+            if grade_substance==4:
+                coef = 1.5
+            if grade_substance==5:
+                coef=2
+            return coef
+        else:
+            print("The grade of the selected substance must be between 1 and 5")
+    else:
+        print("The grade of the selected substance must be and integer number between 1 and 5") 
