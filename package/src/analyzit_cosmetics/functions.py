@@ -1,6 +1,6 @@
 import csv
 import pandas as pd
-
+import os
 def search_ingredients(barcode : str,  path_to_database1 = None) -> list:
     """
     Return a list that contains the ingredients corresponding to the barcode entered.
