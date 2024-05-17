@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 import os
 
-def search_ingredients(barcode : str) -> list:
+def search_ingredients(barcode : str,  csv_file1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv')) : file) -> list:
     """
     Return a list that contains the ingredients corresponding to the barcode entered.
 
@@ -21,7 +21,7 @@ def search_ingredients(barcode : str) -> list:
     >>> search_ingredients ("12345", database.csv)
     ['A','B','C']
     """
-    csv_file1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv'))
+   
     try:
         df = pd.read_csv(csv_file1, encoding='utf-8', dtype={'code': str}) # Allows to access the data in the csv file
         row = df[df['code'] == barcode] # Accesses to the values of the barcodes in the csv file
@@ -34,7 +34,7 @@ def search_ingredients(barcode : str) -> list:
     except Exception as e:
         return f"An error occurred while loading the file or during the search : {e}" # Handles other errors : not finding a file/unsuccessful search
 
-def danger_list(barcode : str) -> dict:
+def danger_list(barcode : str,csv_file1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv')) : file, sv_file2 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_dangers.csv'))  ) -> dict:
     """
     Returns a dictionary that contains the dangerous ingredients corresponding to the barcode entered 
     with their corresponding types of dangers using the function search_ingredients.
@@ -53,9 +53,7 @@ def danger_list(barcode : str) -> dict:
     --------
     >>> danger_list ("12345", database1.csv, database2.csv)
     {'compound1' : [danger1,danger2] , 'compound2' : [danger1]}
-    """
-    csv_file1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv'))
-    csv_file2 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_dangers.csv'))
+    """)
     # Uses the function search_ingredients to access the list of ingredients in the barcode database
     ingredients = search_ingredients(barcode)
 
