@@ -1,18 +1,18 @@
 import csv
 import pandas as pd
 
-def search_ingredients(barcode : str, csv_file : str) -> list:
+def search_ingredients(barcode : str,  path_to_database1 = None) -> list:
     """
     Return a list that contains the ingredients corresponding to the barcode entered.
 
     Parameters 
     ----------
     barcode : str
-      A number string representing a barcode of a cosmetic.
-
-    csv_file : str
-      One of our databases which contains barcodes in a row named "code" and 
-      ingredients of the barcode product in a row named "ingredients_text".
+        A number string representing a barcode of a cosmetic.
+      
+    path_to_database1 : str
+        Path to one of our databases which contains barcodes in a row named "code" and 
+        ingredients of the barcode product in a row named "ingredients_text".
 
     Returns 
     -------
@@ -24,8 +24,10 @@ def search_ingredients(barcode : str, csv_file : str) -> list:
     >>> search_ingredients ("12345", database.csv)
     ['A','B','C']
     """
+    if path_to_database1 = None :
+        path_to_database1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv'))
     try:
-        df = pd.read_csv(csv_file, encoding='utf-8', dtype={'code': str}) # Allows to access the data in the csv file
+        df = pd.read_csv(path_to_database1, encoding='utf-8', dtype={'code': str}) # Allows to access the data in the csv file
         row = df[df['code'] == barcode] # Accesses to the values of the barcodes in the csv file
         if not row.empty:  # Check if the barcode has a list of ingredients in the database
             ingredients_str = row['ingredients_text'].iloc[0] # Take into account the first value in the row of the ingredients 
