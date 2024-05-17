@@ -1,7 +1,7 @@
 import csv
 import pandas as pd
 import os
-def search_ingredients(barcode : str,  path_to_database1 = None : str) -> list:
+def search_ingredients(barcode : str,  path_to_database1 = None ) -> list:
     """
     Return a list that contains the ingredients corresponding to the barcode entered.
 
@@ -38,7 +38,7 @@ def search_ingredients(barcode : str,  path_to_database1 = None : str) -> list:
     except Exception as e:
         return f"An error occurred while loading the file or during the search : {e}" # Handles other errors : not finding a file/unsuccessful search
 
-def danger_list(barcode : str,  path_to_database1 = None : str,  path_to_database2 = None : str) -> dict:
+def danger_list(barcode : str,  path_to_database1 = None,  path_to_database2 = None) -> dict:
     """
     Returns a dictionary that contains the dangerous ingredients corresponding to the barcode entered
     with their corresponding types of dangers using the function search_ingredients.
