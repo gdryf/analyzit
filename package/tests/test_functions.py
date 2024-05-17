@@ -11,11 +11,11 @@ def test_search_ingredients():
 from src.analyzit_cosmetics import danger_list
 def test_danger_list():
     # Test 1 : if a dangerous compound is found in the list of ingredients (one danger) : 
-    assert danger_list ('3014230002601',) == {'Sodium Fluoride': ['Carcinogenic']}, "Test 1 failed "
+    assert danger_list ('3014230002601') == {'Sodium Fluoride': ['Carcinogenic']}, "Test 1 failed "
     # Test 2 : if a dangerous compound is found in the list of ingredients (various dangers) : 
-    assert danger_list ('667556796483',) == {'stearic acid': ['Carcinogenic'], 'glycerin': ['Carcinogenic'], 'methylparaben': ['Paraben'], 'propylparaben': ['Paraben'], 'butylparaben': ['Carcinogenic, Paraben'], 'benzyl alcohol': ['Carcinogenic'], 'coumarin': ['Carcinogenic']} , "Test 2 failed "
+    assert danger_list ('667556796483') == {'stearic acid': ['Carcinogenic'], 'glycerin': ['Carcinogenic'], 'methylparaben': ['Paraben'], 'propylparaben': ['Paraben'], 'butylparaben': ['Carcinogenic, Paraben'], 'benzyl alcohol': ['Carcinogenic'], 'coumarin': ['Carcinogenic']} , "Test 2 failed "
     # Test 3 : in the case where the barcode isn't found in the database : 
-    assert danger_list ('999999',) == "No ingredients found for this barcode." , "Test 3 failed "
+    assert danger_list ('999999') == "No ingredients found for this barcode." , "Test 3 failed "
    
 from src.analyzit_cosmetics import amount_dangers
 def test_amount_dangers():
