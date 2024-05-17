@@ -38,26 +38,29 @@ def search_ingredients(barcode : str, csv_file : str) -> list:
 
 def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
     """
-    Returns a dictionary that contains the dangerous ingredients corresponding to the barcode entered 
+    Returns a dictionary that contains the dangerous ingredients corresponding to the barcode entered
     with their corresponding types of dangers using the function search_ingredients.
-    Parameters 
+
+    Parameters
     ----------
     barcode : str
-      A number string representing a barcode of a cosmetic.
+        A number string representing a barcode of a cosmetic.
     csv_file1 : str
-        One of our databases which contains barcodes in a row named "code" and     
+        One of our databases which contains barcodes in a row named "code" and
         ingredients of the barcode product in a row named "ingredients_text".
-    csv_file2 : str    
-        Another one of our databases which contains names of dangerous compounds in the column "cmpdname", 
-        synonyms of those compounds in "cmpdsynonym" and there type(s) of dangers in the column "dangers" (Paraben, Carcinogenic or Endocrine).
-    Returns 
+    csv_file2 : str
+        Another one of our databases which contains names of dangerous compounds in the column "cmpdname",
+        synonyms of those compounds in "cmpdsynonym", and their type(s) of dangers in the column "dangers" (Paraben, Carcinogenic, or Endocrine).
+
+    Returns
     -------
-    dict 
-      A dictionary containing all of the dangerous compounds of the cosemtic corrsponding to the barcode and their type(s) of danger.
-    Examples 
+    dict
+        A dictionary containing all of the dangerous compounds of the cosmetic corresponding to the barcode and their type(s) of danger.
+
+    Examples
     --------
-    >>> danger_list ("12345", database1.csv, database2.csv)
-    {'compound1' : [danger1,danger2] , 'compound2' : [danger1]}
+    >>> danger_list("12345", "database1.csv", "database2.csv")
+    {'compound1': ['danger1', 'danger2'], 'compound2': ['danger1']}
     """
     # Uses the function search_ingredients to access the list of ingredients in the barcode database
     ingredients = search_ingredients(barcode, csv_file1)
