@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 
 
-def search_ingredients(barcode : str, csv_file1 : str) -> list:
+def search_ingredients(barcode : str) -> list:
     """
     Return a list that contains the ingredients corresponding to the barcode entered.
 
@@ -10,11 +10,7 @@ def search_ingredients(barcode : str, csv_file1 : str) -> list:
     ----------
     barcode : str
       A number string representing a barcode of a cosmetic.
-
-    csv_file1 : str
-      One of our databases which contains barcodes in a row named "code" and 
-      ingredients of the barcode product in a row named "ingredients_text".
-
+      
     Returns 
     -------
     list 
@@ -38,7 +34,7 @@ def search_ingredients(barcode : str, csv_file1 : str) -> list:
     except Exception as e:
         return f"An error occurred while loading the file or during the search : {e}" # Handles other errors : not finding a file/unsuccessful search
 
-def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
+def danger_list(barcode : str) -> dict:
     """
     Returns a dictionary that contains the dangerous ingredients corresponding to the barcode entered 
     with their corresponding types of dangers using the function search_ingredients.
@@ -47,15 +43,7 @@ def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
     ----------
     barcode : str
       A number string representing a barcode of a cosmetic.
-
-    csv_file1 : str
-        One of our databases which contains barcodes in a row named "code" and     
-        ingredients of the barcode product in a row named "ingredients_text".
-
-    csv_file2 : str    
-        Another one of our databases which contains names of dangerous compounds in the column "cmpdname", 
-        synonyms of those compounds in "cmpdsynonym" and there type(s) of dangers in the column "dangers" (Paraben, Carcinogenic or Endocrine).
-
+      
     Returns 
     -------
     dict 
