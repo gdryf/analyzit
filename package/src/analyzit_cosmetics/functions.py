@@ -64,9 +64,9 @@ def danger_list(barcode : str,  path_to_database1 = None,  path_to_database2 = N
     >>> danger_list("12345", "database1.csv", "database2.csv")
     {'compound1': ['danger1', 'danger2'], 'compound2': ['danger1']}
     """
-     if path_to_database1 is None :
+    if path_to_database1 is None :
         path_to_database1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'database_products.csv'))
-     if path_to_database2 is None :
+    if path_to_database2 is None :
         path_to_database2 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'database_dangers.csv'))
     # Uses the function search_ingredients to access the list of ingredients in the barcode database
     ingredients = search_ingredients(barcode, path_to_database1)
