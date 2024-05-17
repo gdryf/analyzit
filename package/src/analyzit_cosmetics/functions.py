@@ -98,7 +98,7 @@ def danger_list(barcode : str, csv_file1 : str, csv_file2: str) -> dict:
     
     return dangerous_ingredients
        
-def amount_dangers(dangerous_ingredients : dict) -> dict:
+def amount_dangers(dangerous_ingredients : dict, grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int ) -> dict:
     """
     Returns a dictionary that contains the types of dangers and their amount corresponding to a dict of ingredients and dangers 
     using the grades given by the function A COMPLETER
@@ -106,7 +106,10 @@ def amount_dangers(dangerous_ingredients : dict) -> dict:
     Parameters 
     ----------
     dangerous_ingredients : dict
-      A dictionary containing dangerous compounds and their correponding type(s) of danger.
+        A dictionary containing dangerous compounds and their correponding type(s) of danger.
+      
+    grade_paraben, grade_carcinogenic and grade_endocrine : int
+        The grades provided by the user which defines how the types of dangers will be provided (obtained with the function A COMPLETER)
 
     Returns 
     -------
