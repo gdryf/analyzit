@@ -24,7 +24,7 @@ def search_ingredients(barcode : str,  path_to_database1 = None) -> list:
     >>> search_ingredients ("12345", database.csv)
     ['A','B','C']
     """
-    if path_to_database1 = None :
+    if path_to_database1 is None :
         path_to_database1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv'))
     try:
         df = pd.read_csv(path_to_database1, encoding='utf-8', dtype={'code': str}) # Allows to access the data in the csv file
