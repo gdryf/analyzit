@@ -2,11 +2,10 @@ import os
 import pytest
 from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers
 def test_search_ingredients():
-    path_to_database1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv'))
     # Test 1 : if the barcode is found
-    assert search_ingredients('3014230002601',path_to_database1) == ['Aqua', 'Hydrogenated Starch Hydrolysate', 'Hydrated Silica', 'Zinc Citrate', 'Sodium Lauryl Sulfate', 'Aroma', 'Cellulose Gum', 'Sodium Fluoride', 'Sodium Saccharin', 'Mentha Arvensis Leaf Oil', 'Mentha Piperita Oil', 'Mentha Spicata Flower/Leaf/Stem Oil', 'CI 42051.'], "Test 1 failed "
+    assert search_ingredients('3014230002601') == ['Aqua', 'Hydrogenated Starch Hydrolysate', 'Hydrated Silica', 'Zinc Citrate', 'Sodium Lauryl Sulfate', 'Aroma', 'Cellulose Gum', 'Sodium Fluoride', 'Sodium Saccharin', 'Mentha Arvensis Leaf Oil', 'Mentha Piperita Oil', 'Mentha Spicata Flower/Leaf/Stem Oil', 'CI 42051.'], "Test 1 failed "
     # Test 2 : if the barcode isn't found
-    assert search_ingredients('999999', path_to_database1) == "No ingredients found for this barcode.",  "Test 2 failed "
+    assert search_ingredients('999999') == "No ingredients found for this barcode.",  "Test 2 failed "
     # Test 3 : if another error occurs ( file not found or search unsucessful)
     assert search_ingredients('123456', 'inexistant_file.csv') == "An error occurred while loading the file or during the search : [Errno 2] No such file or directory: 'inexistant_file.csv'",  "Test 3 failed "
     
