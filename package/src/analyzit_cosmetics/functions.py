@@ -1,6 +1,6 @@
 import csv
 import pandas as pd
-
+import os
 
 def search_ingredients(barcode : str) -> list:
     """
