@@ -1,9 +1,9 @@
 <p align="center">
-   <img src="https://github.com/gdryf/analyzit/blob/ch200/package/assets/logo_maj.png" alt="Project Logo" style="display: block; margin-left: auto; margin-right: auto;">
+   <img src="https://github.com/gdryf/analyzit/blob/main/package/assets/logo_maj.png" alt="Project Logo" style="display: block; margin-left: auto; margin-right: auto;">
 </p>
 
 
-![Coverage Status](https://github.com/gdryf/analyzit/blob/ch200/package/assets/coverage-badge.svg)
+![Coverage Status](https://github.com/gdryf/analyzit/blob/main/package/assets/coverage-badge.svg)
 
 <h1 align="center">
 AnalyzIt
