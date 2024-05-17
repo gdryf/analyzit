@@ -57,7 +57,7 @@ def danger_list(barcode : str) -> dict:
     csv_file1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_products.csv'))
     csv_file2 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'database_dangers.csv'))
     # Uses the function search_ingredients to access the list of ingredients in the barcode database
-    ingredients = search_ingredients(barcode, csv_file1)
+    ingredients = search_ingredients(barcode)
 
     # Checks if search_ingredients returned an error, if so, return the error
     if isinstance(ingredients, str):  
