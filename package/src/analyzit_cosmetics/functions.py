@@ -210,9 +210,14 @@ def coefficient(grade_substance : int)-> int:
     >>> coefficient (5)
     2
     """
-    
+
+    # verifie that the argument (grade_substance) is an integer
     if type(grade_substance) ==int:
+
+        #verifies that the argument is between 1 and 5
         if 1 <=grade_substance <= 5:
+
+            #assigns a different coefficient in each case : if grade=1, 2, 3, 4 and 5
             if grade_substance==1:
                 coef=0.5
             if grade_substance==2:
@@ -223,8 +228,8 @@ def coefficient(grade_substance : int)-> int:
                 coef = 1.5
             if grade_substance==5:
                 coef=2
-            return coef
+            return coef #the function returns the correct coefficient
         else:
-            print("The grade of the selected substance must be between 1 and 5")
+            print("The grade of the selected substance must be between 1 and 5") # message of error when the argument is not between 1 and 5
     else:
-        print("The grade of the selected substance must be and integer number between 1 and 5") 
+        print("The grade of the selected substance must be and integer number between 1 and 5") # message of error when the argument is not an integer
