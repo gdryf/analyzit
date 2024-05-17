@@ -1,7 +1,7 @@
 import csv
 import pandas as pd
 
-def search_ingredients(barcode : str, csv_file : str) -> list:
+def search_ingredients(barcode : str, csv_file1 : str) -> list:
     """
     Return a list that contains the ingredients corresponding to the barcode entered.
 
@@ -10,7 +10,7 @@ def search_ingredients(barcode : str, csv_file : str) -> list:
     barcode : str
       A number string representing a barcode of a cosmetic.
 
-    csv_file : str
+    csv_file1 : str
       One of our databases which contains barcodes in a row named "code" and 
       ingredients of the barcode product in a row named "ingredients_text".
 
