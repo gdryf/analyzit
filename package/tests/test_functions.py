@@ -25,7 +25,7 @@ def test_danger_list():
     assert danger_list ('999999', 'inexistant_file1.csv','inexistant_file2.csv') == "An error occurred while loading the file or during the search : [Errno 2] No such file or directory: 'inexistant_file1.csv'", "Test 4 failed "
 
 from src.analyzit_cosmetics import amount_dangers
-def amount_dangers():
+def test_amount_dangers():
     dangerous_ingredients = {'stearic acid': ['Carcinogenic'], 'glycerin': ['Carcinogenic'], 'methylparaben': ['Paraben'], 'propylparaben': ['Paraben'], 'butylparaben': ['Carcinogenic, Paraben'], 'benzyl alcohol': ['Carcinogenic'], 'coumarin': ['Carcinogenic']}
     # Test 1 : if the user decides to apply the same order of priority for all the types of danger
     assert amount_dangers (dangerous_ingredients,3,3,3) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrin': 0}, "Test 1 failed"
