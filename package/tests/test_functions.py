@@ -31,6 +31,8 @@ def test_amount_dangers():
     # Test 2 : if the user decides to apply different order of priorities, prioritizes the count of the most important type of danger
     assert amount_dangers (dangerous_ingredients,2,5,4) == {'Paraben': 2, 'Carcinogenic': 5, 'Endocrine': 1}, "Test 2 failed"
     # Test 3 : if the maximum grade is given to the category "Endocrine"
-    assert amount_dangers (dangerous_ingredients,4,1,5) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 2 failed"
+    assert amount_dangers (dangerous_ingredients,4,1,5) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 3 failed"
     # Test 4 : if the minimum grade is given to "Carcinogenic"
     assert amount_dangers (dangerous_ingredients,4,1,2) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 4 failed"
+    # Test 5 : if the medium grade is given to "Carcinogenic" and minium grade given to "Endocrine"
+    assert amount_dangers (dangerous_ingredients,4,2,1) =={'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 5 failed"
