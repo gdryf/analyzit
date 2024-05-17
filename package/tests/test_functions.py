@@ -1,5 +1,3 @@
-import os
-import pytest
 
 from src.analyzit_cosmetics import search_ingredients
 def test_search_ingredients():
