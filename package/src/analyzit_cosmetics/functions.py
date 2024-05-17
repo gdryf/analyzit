@@ -119,11 +119,14 @@ def amount_dangers(dangerous_ingredients : dict) -> dict:
     >>> amount_dangers (dangerous_ingredients)
     {'danger1' : [3] , 'danger2' : [6]}
     """
+
+    # Sets the counters to zero before adding to them in function of the dangers encountered
     counting = {
         'Paraben': 0,
         'Carcinogenic': 0,
         'Endocrin': 0
         }
+    # Handles the case of an equal priority given by the user to every type of danger
     if grade_paraben == grade_carcinogenic == grade_endocrine : 
          for produit, categories in dangerous_ingredients.items():
             for category in categories:
@@ -134,21 +137,23 @@ def amount_dangers(dangerous_ingredients : dict) -> dict:
                   elif 'Endocrine' in category:
                        counting['Endocrine'] += 1
         
-
+    # Handles the case of an unequal priority given by the user to every type of danger (the danger taken into account for each coumpound will be the one with most prority)
     else : 
-        grade_max = max(grade_paraben,grade_carcinogenic ,grade_endocrine)
-        grade_min = min(grade_paraben,grade_carcinogenic ,grade_endocrine)
+        grade_max = max(grade_paraben,grade_carcinogenic ,grade_endocrine) # Defines the most important type of danger for the user
+        grade_min = min(grade_paraben,grade_carcinogenic ,grade_endocrine) # Defines the least important type of danger for the user
         grades = [grade_paraben, grade_carcinogenic, grade_endocrine]
-        med_grade = sum(grades) - grade_min - grade_max
-
-        category_max = ""
+        med_grade = sum(grades) - grade_min - grade_max # Defines the type of danger that is not the most or least important for the user
+        
+        # Assigns the most important category
+        category_max = "" 
         if grade_max == grade_paraben:
              category_max = "Paraben"
         elif grade_max == grade_carcinogenic:
             category_max = "Carcinogenic"
         elif grade_max == grade_endocrine:
             category_max = "Endocrine"
-
+            
+        # Assigns the least important category
         category_min = ""
         if grade_min  == grade_paraben:
             category_min = "Paraben"
@@ -157,7 +162,8 @@ def amount_dangers(dangerous_ingredients : dict) -> dict:
         elif grade_min  == grade_endocrine:
             category_min = "Endocrine"
 
-            category_med = ""
+        # Assigns category that is not the most or least important 
+        category_med = ""
         if med_grade == grade_paraben:
             category_med = "Paraben"
         elif med_grade == grade_carcinogenic:
@@ -165,7 +171,7 @@ def amount_dangers(dangerous_ingredients : dict) -> dict:
         elif med_grade == grade_endocrine:
             category_med = "Endocrine"
     
-        # Incrémenter le compteur de la catégorie avec la note la plus élevée
+        # For all the compounds of the list, counts the amount of dangerous compounds of each type by prioritizing the most important, the medium important and then the least important category
         for product, categories in dangerous_ingredients.items():
             for category in categories:
                   if category_max in category:
@@ -175,4 +181,4 @@ def amount_dangers(dangerous_ingredients : dict) -> dict:
                   elif category_min in category:
                        counting[category_min] += 1
 
-    return counting
+    return counting # Returns the dictionary containing the types of danger and their counts
