@@ -3,7 +3,7 @@
 </p>
 
 
-![Coverage Status](https://raw.githubusercontent.com/gdryf/analyzit/main/assests/coverage-badge.svg)
+![Coverage Status](https://github.com/gdryf/analyzit/blob/ch200/package/assets/coverage-badge.svg)
 
 <h1 align="center">
 AnalyzIt
