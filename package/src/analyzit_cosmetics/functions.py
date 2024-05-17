@@ -233,3 +233,27 @@ def coefficient(grade_substance : int)-> int:
             print("The grade of the selected substance must be between 1 and 5") # message of error when the argument is not between 1 and 5
     else:
         print("The grade of the selected substance must be and integer number between 1 and 5") # message of error when the argument is not an integer
+
+
+def grading(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int):
+    
+    #écrire code qui resort nombre_sub du dico renvoyé par la fonction amount_dangers
+    dangers = amount_dangers(danger_list(barcode,csv_file1,csv_file2), grade_paraben, grade_carcinogenic, grade_endocrine)
+
+    # Extraction des valeurs pour les clés 'Paraben', 'Carcinogenic' et 'Endocrin'
+    paraben_count = dangers.get('Paraben', 0)
+    carcinogenic_count = dangers.get('Carcinogenic', 0)
+    endocrin_count = dangers.get('Endocrin', 0)
+    #print( paraben_count, carcinogenic_count, endocrin_count)
+    
+    grade=10-(coefficient(grade_paraben)*paraben_count)-(coefficient(grade_carcinogenic)*carcinogenic_count)-(coefficient(grade_endocrine)*endocrin_count)
+    if grade<0:
+        return ("The grade of this product is 0, The product you scanned is bad") 
+    elif grade==10:
+        return ("The product you scanned is very good. The grade of this product is",grade)
+    elif 7<=grade<=9:
+        return ("The product you scanned is good. The grade of this product is",grade)
+    elif 4<=grade<=6:
+        return ("The product you scanned is average. The grade of this product is",grade)
+    else:
+        return ("The product you scanned is bad. The grade of this product is",grade)
