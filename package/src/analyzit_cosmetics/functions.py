@@ -106,7 +106,7 @@ def amount_dangers(dangerous_ingredients : dict, grade_paraben : int, grade_carc
         A dictionary containing dangerous compounds and their correponding type(s) of danger.
       
     grade_paraben, grade_carcinogenic and grade_endocrine : int
-        The grades provided by the user which defines how the types of dangers will be provided (obtained with the function A COMPLETER)
+        The grades provided by the user which define how the types of dangers will be prioritized.
     
     Returns 
     -------
