@@ -241,6 +241,7 @@ def coefficient(grade_substance : int)-> int:
         print("The grade of the selected substance must be and integer number between 1 and 5") # message of error when the argument is not an integer
 
 
+#il faut encore que je mette la bonne mise en page, les commentaires et que je modifie les arguments
 def grading(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int):
     
     #Extraction of the dictionary containing the count of each dangerous product (ex: {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 0})
@@ -266,3 +267,25 @@ def grading(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : int, 
         return f"The product you scanned is average. The grade of this product is: {grade}"
     else:
         return f"The product you scanned is bad. The grade of this product is: {grade}"
+
+
+def grading_bis(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int):
+    
+    #Extraction of the dictionary containing the count of each dangerous product (ex: {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 0})
+    dangers = amount_dangers(danger_list(barcode,csv_file1,csv_file2), grade_paraben, grade_carcinogenic, grade_endocrine)
+    
+    # Extraction of the count of each dangerous substance and putting them in variables
+    paraben_count = dangers.get('Paraben', 0)
+    carcinogenic_count = dangers.get('Carcinogenic', 0)
+    endocrin_count = dangers.get('Endocrin', 0)
+   
+    #Calculation of the grade of the product corresponding to the barcode
+    grade=10-(coefficient(grade_paraben)*paraben_count)-(coefficient(grade_carcinogenic)*carcinogenic_count)-(coefficient(grade_endocrine)*endocrin_count)
+    if grade<0: #Makes the grade go to zero if the calculation above gave an negative grade
+        grade=0
+        return grade
+    else:
+        return grade
+
+
+    
