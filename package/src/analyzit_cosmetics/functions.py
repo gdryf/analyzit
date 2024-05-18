@@ -287,5 +287,20 @@ def grading_bis(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : i
     else:
         return grade
 
+def commentary(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int):
+    
+    #Use the function grading to import the garde 
+    grade= grading(barcode, csv_file1, csv_file2, grade_paraben, grade_carcinogenic, grade_endocrine)
+    
+    #Conditions to determine the commentaries of the grades 
+    if grade==10:
+        return f"The product you scanned is very good. The grade of this product is: {grade}"
+    elif 7<=grade<=9:
+        return f"The product you scanned is good. The grade of this product is: {grade}"
+    elif 4<=grade<=6:
+        return f"The product you scanned is average. The grade of this product is: {grade}"
+    else:
+        return f"The product you scanned is bad. The grade of this product is: {grade}"
+
 
     
