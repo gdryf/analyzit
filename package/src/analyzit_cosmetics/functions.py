@@ -263,7 +263,7 @@ def grading(barcode : str, grade_paraben : int, grade_carcinogenic : int, grade_
 
     Examples
     --------
-    >>> grading('667556796483', 'database_products.csv', 'database_dangers.csv', 4, 3, 3)
+    >>> grading('667556796483', 4, 3, 3)
     1.5
     """
     #Extraction of the dictionary containing the count of each dangerous product (ex: {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 0})
