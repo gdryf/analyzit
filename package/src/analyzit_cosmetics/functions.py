@@ -24,6 +24,7 @@ def search_ingredients(barcode : str,  path_to_database1 = None ) -> list:
     >>> search_ingredients ("12345", database.csv)
     ['A','B','C']
     """
+    
     if path_to_database1 is None :
         path_to_database1 = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'database_products.csv'))
     try:
@@ -125,7 +126,8 @@ def amount_dangers(barcode : str , grade_paraben : int, grade_carcinogenic : int
     >>> amount_dangers (dangerous_ingredients)
     {'danger1' : [3] , 'danger2' : [6]}
     """
-    dangerous_ingredients = danger_list(barcode)
+    if dangerous_ingredients is None:
+        dangerous_ingredients = danger_list(barcode)
     # Sets the counters to zero before adding to them in function of the dangers encountered
     counting = {
         'Paraben': 0,
@@ -186,8 +188,6 @@ def amount_dangers(barcode : str , grade_paraben : int, grade_carcinogenic : int
                         counting[category_med] += 1
                   elif category_min in category:
                        counting[category_min] += 1
-
-    return counting # Returns the dictionary containing the types of danger and their counts
 
     return counting # Returns the dictionary containing the types of danger and their counts
 
