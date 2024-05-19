@@ -200,7 +200,7 @@ def coefficient(grade_substance : int)-> int:
     Parameters 
     ----------
     grade_substance : int
-        The grade provided by the user for a certain substance within Paraben, Endocrin and Carcinogenic. 
+        The grade provided by the user for a certain substance within Paraben, Endocrine and Carcinogenic. 
         The grade define the importance of the substance for the user and is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot)
     
     
@@ -241,7 +241,7 @@ def coefficient(grade_substance : int)-> int:
         print("The grade of the selected substance must be and integer number between 1 and 5") # message of error when the argument is not an integer
 
 
-def grading(barcode : str, path_to_database1 : str, path_to_database2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int) -> float:
+def grading(barcode : str, grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int) -> float:
     """
     Returns a float number corresponding to the garde of the product scanned out of ten. 
 
@@ -249,12 +249,6 @@ def grading(barcode : str, path_to_database1 : str, path_to_database2: str,grade
     ----------
     barcode : str
         A number string representing a barcode of a cosmetic.
-    path_to_database1 : str
-        One of our databases which contains barcodes in a row named "code" and
-        ingredients of the barcode product in a row named "ingredients_text".
-    path_to_database2 : str
-        Another one of our databases which contains names of dangerous compounds in the column "cmpdname",
-        synonyms of those compounds in "cmpdsynonym", and their type(s) of dangers in the column "dangers" (Paraben, Carcinogenic, or Endocrine).
     grade_paraben : int
         A integer corresponding to the importance of paraben for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
     grade_carcinogenic : int
@@ -273,22 +267,22 @@ def grading(barcode : str, path_to_database1 : str, path_to_database2: str,grade
     1.5
     """
     #Extraction of the dictionary containing the count of each dangerous product (ex: {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 0})
-    dangers = amount_dangers(danger_list(barcode,path_to_database1,path_to_database2), grade_paraben, grade_carcinogenic, grade_endocrine)
+    dangers = amount_dangers(danger_list(barcode), grade_paraben, grade_carcinogenic, grade_endocrine)
     
     # Extraction of the count of each dangerous substance and putting them in variables
     paraben_count = dangers.get('Paraben', 0)
     carcinogenic_count = dangers.get('Carcinogenic', 0)
-    endocrin_count = dangers.get('Endocrin', 0)
+    endocrine_count = dangers.get('Endocrine', 0)
    
     #Calculation of the grade of the product corresponding to the barcode
-    grade=10-(coefficient(grade_paraben)*paraben_count)-(coefficient(grade_carcinogenic)*carcinogenic_count)-(coefficient(grade_endocrine)*endocrin_count)
+    grade=10-(coefficient(grade_paraben)*paraben_count)-(coefficient(grade_carcinogenic)*carcinogenic_count)-(coefficient(grade_endocrine)*endocrine_count)
     if grade<0: #Makes the grade go to zero if the calculation above gave an negative grade
         grade=0
         return grade
     else:
         return grade
 
-def commentary(barcode : str, path_to_database1 : str, path_to_database2 : str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int) -> str :
+def commentary(barcode : str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int) -> str :
     """
     Returns a float number corresponding to the garde of the product scanned out of ten. 
 
@@ -296,12 +290,6 @@ def commentary(barcode : str, path_to_database1 : str, path_to_database2 : str,g
     ----------
     barcode : str
         A number string representing a barcode of a cosmetic.
-    path_to_database1 : str
-        One of our databases which contains barcodes in a row named "code" and
-        ingredients of the barcode product in a row named "ingredients_text".
-    path_to_database2 : str
-        Another one of our databases which contains names of dangerous compounds in the column "cmpdname",
-        synonyms of those compounds in "cmpdsynonym", and their type(s) of dangers in the column "dangers" (Paraben, Carcinogenic, or Endocrine).
     grade_paraben : int
         A integer corresponding to the importance of paraben for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
     grade_carcinogenic : int
@@ -316,12 +304,12 @@ def commentary(barcode : str, path_to_database1 : str, path_to_database2 : str,g
 
     Examples
     --------
-    >>> commentary('667556796483', 'database_products.csv', 'database_dangers.csv', 4, 3, 3)
+    >>> commentary('667556796483', 4, 3, 3)
     'The product you scanned is bad. The grade of this product is: 1.5'
     """
     
     #Use the function grading to import the garde 
-    grade= grading(barcode, path_to_database1, path_to_database2, grade_paraben, grade_carcinogenic, grade_endocrine)
+    grade= grading(barcode, grade_paraben, grade_carcinogenic, grade_endocrine)
     
     #Conditions to determine the commetaries of the grades and return the appropriate one.
     if grade==10:
