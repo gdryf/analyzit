@@ -379,9 +379,9 @@ def graph_grades(barcode : str, grade_paraben : int, grade_carcinogenic : int, g
     # Associates a colour corresponding to the commentary of the grade to the barcode
     if grade == 10:
         colour = "green"
-    elif 7 <= grade <= 9:
+    elif 7 <= grade < 10:
         colour = "yellow"
-    elif 4 <= grade <= 6:
+    elif 4 <= grade < 7:
         colour = "orange"
     else:
         colour = "red"
