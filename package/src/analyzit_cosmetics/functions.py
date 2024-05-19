@@ -241,7 +241,7 @@ def coefficient(grade_substance : int)-> int:
         print("The grade of the selected substance must be and integer number between 1 and 5") # message of error when the argument is not an integer
 
 
-def grading(barcode : str, path_to_database1 : str, path_to_database2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int)->float:
+def grading(barcode : str, path_to_database1 : str, path_to_database2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int) -> float:
     """
     Returns a float number corresponding to the garde of the product scanned out of ten. 
 
@@ -288,12 +288,42 @@ def grading(barcode : str, path_to_database1 : str, path_to_database2: str,grade
     else:
         return grade
 
-def commentary(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int):
+def commentary(barcode : str, path_to_database1 : str, path_to_database2 : str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int) -> str :
+    """
+    Returns a float number corresponding to the garde of the product scanned out of ten. 
+
+    Parameters
+    ----------
+    barcode : str
+        A number string representing a barcode of a cosmetic.
+    path_to_database1 : str
+        One of our databases which contains barcodes in a row named "code" and
+        ingredients of the barcode product in a row named "ingredients_text".
+    path_to_database2 : str
+        Another one of our databases which contains names of dangerous compounds in the column "cmpdname",
+        synonyms of those compounds in "cmpdsynonym", and their type(s) of dangers in the column "dangers" (Paraben, Carcinogenic, or Endocrine).
+    grade_paraben : int
+        A integer corresponding to the importance of paraben for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
+    grade_carcinogenic : int
+        A integer corresponding to the importance of carcinogenic products for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
+    grade_endocrine : int
+        A integer corresponding to the importance of endocrine for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
+
+    Returns
+    -------
+    str
+        A string commenting on the grade obtained with the function grading
+
+    Examples
+    --------
+    >>> commentary('667556796483', 'database_products.csv', 'database_dangers.csv', 4, 3, 3)
+    'The product you scanned is bad. The grade of this product is: 1.5'
+    """
     
     #Use the function grading to import the garde 
-    grade= grading(barcode, csv_file1, csv_file2, grade_paraben, grade_carcinogenic, grade_endocrine)
+    grade= grading(barcode, path_to_database1, path_to_database2, grade_paraben, grade_carcinogenic, grade_endocrine)
     
-    #Conditions to determine the commetaries of the grades 
+    #Conditions to determine the commetaries of the grades and return the appropriate one.
     if grade==10:
         return f"The product you scanned is very good. The grade of this product is: {grade}"
     elif 7<=grade<=9:
