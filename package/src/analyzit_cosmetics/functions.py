@@ -242,34 +242,8 @@ def coefficient(grade_substance : int)-> int:
 
 
 #il faut encore que je mette la bonne mise en page, les commentaires et que je modifie les arguments
+
 def grading(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int):
-    
-    #Extraction of the dictionary containing the count of each dangerous product (ex: {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 0})
-    dangers = amount_dangers(danger_list(barcode,csv_file1,csv_file2), grade_paraben, grade_carcinogenic, grade_endocrine)
-    
-    # Extraction of the count of each dangerous substance and putting them in variables
-    paraben_count = dangers.get('Paraben', 0)
-    carcinogenic_count = dangers.get('Carcinogenic', 0)
-    endocrin_count = dangers.get('Endocrin', 0)
-   
-    #Calculation of the grade of the product corresponding to the barcode
-    grade=10-(coefficient(grade_paraben)*paraben_count)-(coefficient(grade_carcinogenic)*carcinogenic_count)-(coefficient(grade_endocrine)*endocrin_count)
-    
-    #commentaries of the grade obtained 
-    if grade<0: #Makes the garde go to zero if the calculation above gave an negative grade
-        grade=0
-        return f"The product you scanned is bad. The grade of this product is: {grade}" 
-    elif grade==10:
-        return f"The product you scanned is very good. The grade of this product is: {grade}"
-    elif 7<=grade<=9:
-        return f"The product you scanned is good. The grade of this product is: {grade}"
-    elif 4<=grade<=6:
-        return f"The product you scanned is average. The grade of this product is: {grade}"
-    else:
-        return f"The product you scanned is bad. The grade of this product is: {grade}"
-
-
-def grading_bis(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int):
     
     #Extraction of the dictionary containing the count of each dangerous product (ex: {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 0})
     dangers = amount_dangers(danger_list(barcode,csv_file1,csv_file2), grade_paraben, grade_carcinogenic, grade_endocrine)
@@ -292,7 +266,7 @@ def commentary(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : in
     #Use the function grading to import the garde 
     grade= grading(barcode, csv_file1, csv_file2, grade_paraben, grade_carcinogenic, grade_endocrine)
     
-    #Conditions to determine the commentaries of the grades 
+    #Conditions to determine the commetaries of the grades 
     if grade==10:
         return f"The product you scanned is very good. The grade of this product is: {grade}"
     elif 7<=grade<=9:
