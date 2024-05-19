@@ -340,7 +340,7 @@ def initialize_graph_grades() :
     index_products=[]
     return grades_products,index_products
 
-def graph_grades(barcode : str, grades_products : list ,index_products : list ): 
+def graph_grades(barcode : str, grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int, grades_products : list ,index_products : list ): 
     """
     Creates a graph (barplot) that can show all the grades of the ingredients entered and their commentary with colours.
 
@@ -348,6 +348,15 @@ def graph_grades(barcode : str, grades_products : list ,index_products : list ):
     ----------
     barcode : str
         A number string representing a barcode of a cosmetic.
+
+    grade_paraben : int
+        A integer corresponding to the importance of paraben for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
+        
+    grade_carcinogenic : int
+        A integer corresponding to the importance of carcinogenic products for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
+        
+    grade_endocrine : int
+        A integer corresponding to the importance of endocrine for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
       
     grades_products : list
         List that stocks all of the barcodes entered to be able to show their grades on the graph.
