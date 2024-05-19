@@ -20,12 +20,12 @@ def test_danger_list():
     assert danger_list ('999999', 'inexistant_file1.csv','inexistant_file2.csv') == "An error occurred while loading the file or during the search : [Errno 2] No such file or directory: 'inexistant_file1.csv'", "Test 4 failed "
 
 def test_amount_dangers():
-    danger_list('123456') == {'stearic acid': ['Carcinogenic'], 'glycerin': ['Carcinogenic'], 'methylparaben': ['Paraben'], 'propylparaben': ['Paraben'], 'butylparaben': ['Carcinogenic, Paraben'], 'benzyl alcohol': ['Carcinogenic'], 'coumarin': ['Carcinogenic'], 'test' : ['Endocrine']}
+    dangerous_ingredients = {'stearic acid': ['Carcinogenic'], 'glycerin': ['Carcinogenic'], 'methylparaben': ['Paraben'], 'propylparaben': ['Paraben'], 'butylparaben': ['Carcinogenic, Paraben'], 'benzyl alcohol': ['Carcinogenic'], 'coumarin': ['Carcinogenic'], 'test' : ['Endocrine']}
     # Test 1 : if the user decides to apply the same order of priority for all the types of danger
-    assert amount_dangers ('123456',3,3,3) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 1 failed"
+    assert amount_dangers (,3,3,3) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 1 failed"
     # Test 2 : if the user decides to apply different order of priorities, prioritizes the count of the most important type of danger
-    assert amount_dangers ('123456',2,5,4) == {'Paraben': 2, 'Carcinogenic': 5, 'Endocrine': 1}, "Test 2 failed"
+    assert amount_dangers (,2,5,4) == {'Paraben': 2, 'Carcinogenic': 5, 'Endocrine': 1}, "Test 2 failed"
     # Test 3 : other test to complete coverage (if the minimum grade is given to "Carcinogenic" and maximum garde to "Endocrine")
-    assert amount_dangers ('123456',4,1,5) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 3 failed"
+    assert amount_dangers (,4,1,5) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 3 failed"
     # Test 4 : other test to complete coverage (if the medium grade is given to "Carcinogenic" and minimum grade given to "Endocrine")
-    assert amount_dangers ('123456',4,2,1) =={'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 4 failed"
+    assert amount_dangers (,4,2,1) =={'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 4 failed"
