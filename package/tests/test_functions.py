@@ -1,5 +1,6 @@
-
 import pytest
+import matplotlib.pyplot as plt
+
 from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers, coefficient, graph_grades
 def test_search_ingredients():
     # Test 1 : if the barcode is found
