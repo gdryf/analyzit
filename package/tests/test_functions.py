@@ -59,10 +59,34 @@ def test_graph_grades():
     assert len(index_products) == 1, "index_products should contain 1 item."
     assert 1 <= grades_products[0] < 11, "The grade should be between 1 and 10."
     assert index_products[0] == 1, "The index of the product should be 1."
-    # Checks if the colour of the bar is correctly added
+    
+    # Checks if the colour of the bar is correctly added (green)
     bars = plt.gca().patches
     bar_color = bars[0].get_facecolor()
     expected_color = "green"
     expected_rgba = mcolors.to_rgba(expected_color)
     assert bar_color == expected_rgba, f"The color should be {expected_color} but got {bar_color}."
+    
+    # Checks if the colour of the bar is correctly added (yellow)
+    graph_grades('3014230002601', 3, 2, 4, grades_products, index_products)
+    bar_color = bars[1].get_facecolor()
+    expected_color = "yellow"
+    expected_rgba = mcolors.to_rgba(expected_color)
+    assert bar_color == expected_rgba, f"The color should be {expected_color} but got {bar_color}."
+
+    # Checks if the colour of the bar is correctly added (orange)
+    graph_grades('667556796483', 3, 2, 4, grades_products, index_products)
+    bar_color = bars[2].get_facecolor()
+    expected_color = "orange"
+    expected_rgba = mcolors.to_rgba(expected_color)
+    assert bar_color == expected_rgba, f"The color should be {expected_color} but got {bar_color}."
+
+    # Checks if the colour of the bar is correctly added (red)
+    graph_grades('667556796483', 3, 4, 5, grades_products, index_products)
+    bar_color = bars[3].get_facecolor()
+    expected_color = "red"
+    expected_rgba = mcolors.to_rgba(expected_color)
+    assert bar_color == expected_rgba, f"The color should be {expected_color} but got {bar_color}."
+
+
 
