@@ -1,6 +1,6 @@
 
 import pytest
-from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers, coefficient
+from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers, coefficient, graph_grades
 def test_search_ingredients():
     # Test 1 : if the barcode is found
     assert search_ingredients('3014230002601') == ['Aqua', 'Hydrogenated Starch Hydrolysate', 'Hydrated Silica', 'Zinc Citrate', 'Sodium Lauryl Sulfate', 'Aroma', 'Cellulose Gum', 'Sodium Fluoride', 'Sodium Saccharin', 'Mentha Arvensis Leaf Oil', 'Mentha Piperita Oil', 'Mentha Spicata Flower/Leaf/Stem Oil', 'CI 42051.'], "Test 1 failed "
