@@ -53,6 +53,6 @@ def test_graph_grades():
     # Checks if the lists are correctly filled
     assert len(grades_products) == 1, "grades_products should contain 1 item."
     assert len(index_products) == 1, "index_products should contain 1 item."
-    assert grades_products[0] in range(1, 11), "The grade should be between 1 and 10."
+     assert 1 <= grades_products[0] <= 10, "The grade should be between 1 and 10."
     assert index_products[0] == 1, "The index of the product should be 1."
 
