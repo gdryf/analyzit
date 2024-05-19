@@ -273,7 +273,7 @@ def grading(barcode : str, path_to_database1 : str, path_to_database2: str,grade
     1.5
     """
     #Extraction of the dictionary containing the count of each dangerous product (ex: {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 0})
-    dangers = amount_dangers(danger_list(barcode,csv_file1,csv_file2), grade_paraben, grade_carcinogenic, grade_endocrine)
+    dangers = amount_dangers(danger_list(barcode,path_to_database1,path_to_database2), grade_paraben, grade_carcinogenic, grade_endocrine)
     
     # Extraction of the count of each dangerous substance and putting them in variables
     paraben_count = dangers.get('Paraben', 0)
