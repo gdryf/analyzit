@@ -323,26 +323,6 @@ def commentary(barcode : str,grade_paraben : int, grade_carcinogenic : int, grad
     else:
         return f"The product you scanned is bad. The grade of this product is: {grade}"
 
-def initialize_graph_grades() :
-    """
-    Initializes empty lists : grades_products and index_products to be able to show all the products on the same graph.
-
-    Parameters 
-    ----------
-    None
-    
-    Returns 
-    -------
-    grades_products : list
-        Empty list.
-
-    index_products : list
-        Empty list.
-    """
-    grades_products = []
-    index_products=[]
-    return grades_products,index_products
-
 def graph_grades(barcode : str, grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int, grades_products : list ,index_products : list ): 
     """
     Creates a graph (barplot) that can show all the grades of the ingredients entered and their commentary with colours.
