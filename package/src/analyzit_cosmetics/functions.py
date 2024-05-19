@@ -386,7 +386,7 @@ def graph_grades(barcode : str, grade_paraben : int, grade_carcinogenic : int, g
     else:
         colour = "red"
     # Adds a bar of the colour corresponding to the commentary
-    plt.bar(index_products[-1], grades_products[-1],color=coulour)
+    plt.bar(index_products[-1], grades_products[-1],color=colour)
     
     # Adds labels to the axes and a title to the barplot
     plt.xlabel('Index of product')
