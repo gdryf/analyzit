@@ -46,31 +46,20 @@ def test_coefficient():
     assert coefficient(None)== "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
 
 def test_graph_grades():
-    # Test des valeurs spécifiques de note et des couleurs associées
-    test_cases = [
-        (10, "green"),
-        (8, "yellow"),
-        (5, "orange"),
-        (2, "red"),
-    ]
+    # Creates the empty lists grades_products and index_products
+    grades_products = []
+    index_products = []
+    
+    graph_grades("855553005305", 3, 4, 5, grades_products, index_products)
+    
+    # Checks if the lists are filled correctly
+    assert len(grades_products) == 1, "grades_products should contain 1 item."
+    assert len(index_products) == 1, "index_products should contain 1 item."
+    assert 1 <= grades_products[0] < 11, "The grade should be between 1 and 10."
+    assert index_products[0] == 1, "The index of the product should be 1."
+    # Checks if the colour of the bar is correctly added
+    bars = plt.gca().patches
+    bar_color = bars[0].get_facecolor()
+    expected_color = "green"
+    assert bar_color == expected_color, f"The color should be {expected_color} but got {bar_color}."
 
-    for grade, expected_color in test_cases:
-        grades_products = []
-        index_products = []
-
-        # Appelez la fonction avec les valeurs de test
-        graph_grades("test_barcode", grade, grade, grade, grades_products, index_products)
-
-        # Vérifiez si les listes ont été mises à jour correctement
-        assert len(grades_products) == 4, "grades_products should contain 1 item."
-        assert len(index_products) == 4, "index_products should contain 1 item."
-        assert 1 <= grades_products[0:5] < 11, "The grade should be between 1 and 10."
-        assert index_products[3] == 4, "The index of the product should be 4."
-
-        # Vérifiez la couleur de la barre
-        bars = plt.gca().patches
-        bar_color = bars[0].get_facecolor()
-        assert bar_color == expected_color, f"The color should be {expected_color} but got {bar_color}."
-
-        # Ferme la figure pour le test suivant
-        plt.close()
