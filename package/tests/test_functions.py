@@ -44,3 +44,15 @@ def test_coefficient():
     assert coefficient(3.5) == "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
     assert coefficient("3")== "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
     assert coefficient(None)== "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
+
+def test_graph_grades():
+    # Creates empty lists named grades_products et index_products
+    grades_products = []
+    index_products = []
+    graph_grades("3014230002601", 3, 4, 5, grades_products, index_products)
+    # Checks if the lists are correctly filled
+    assert len(grades_products) == 1, "grades_products should contain 1 item."
+    assert len(index_products) == 1, "index_products should contain 1 item."
+    assert grades_products[0] in range(1, 11), "The grade should be between 1 and 10."
+    assert index_products[0] == 1, "The index of the product should be 1."
+
