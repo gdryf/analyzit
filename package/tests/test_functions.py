@@ -1,5 +1,4 @@
 import pytest
-import matplotlib.pyplot as plt
 
 from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers, coefficient, graph_grades
 def test_search_ingredients():
@@ -46,6 +45,8 @@ def test_coefficient():
     assert coefficient("3")== "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
     assert coefficient(None)== "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
 
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
 def test_graph_grades():
     # Creates the empty lists grades_products and index_products
     grades_products = []
@@ -62,5 +63,6 @@ def test_graph_grades():
     bars = plt.gca().patches
     bar_color = bars[0].get_facecolor()
     expected_color = "green"
-    assert bar_color == expected_color, f"The color should be {expected_color} but got {bar_color}."
+    expected_rgba = mcolors.to_rgba(expected_color)
+    assert bar_color == expected_rgba, f"The color should be {expected_color} but got {bar_color}."
 
