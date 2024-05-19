@@ -235,9 +235,9 @@ def coefficient(grade_substance : int)-> int:
                 coef=2
             return coef #the function returns the correct coefficient
         else:
-            print("The grade of the selected substance must be between 1 and 5") # message of error when the argument is not between 1 and 5
+            return("The grade of the selected substance must be between 1 and 5") # message of error when the argument is not between 1 and 5
     else:
-        print("The grade of the selected substance must be and integer number between 1 and 5") # message of error when the argument is not an integer
+        return("The grade of the selected substance must be and integer number between 1 and 5") # message of error when the argument is not an integer
 
 
 def grading(barcode : str, grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int) -> float:
