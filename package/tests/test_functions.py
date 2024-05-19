@@ -29,3 +29,18 @@ def test_amount_dangers():
     assert amount_dangers (dangerous_ingredients,4,1,5) == {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 3 failed"
     # Test 4 : other test to complete coverage (if the medium grade is given to "Carcinogenic" and minimum grade given to "Endocrine")
     assert amount_dangers (dangerous_ingredients,4,2,1) =={'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 1}, "Test 4 failed"
+
+def test_coefficient():
+    #Test 1 : if the user enters the right value (integer between 1 and 5)
+    assert coefficient(1) == 0.5, "Test 1 failed"
+    assert coefficient(2) == 0.75, "Test 1 failed"
+    assert coefficient(3) == 1, "Test 1 failed"
+    assert coefficient(4) == 1.5, "Test 1 failed"
+    assert coefficient(5) == 2, "Test 1 failed"
+    #Test 2 : if the user enters an integer but out of range
+    assert coefficient(0) == "The grade of the selected substance must be between 1 and 5", "Test 2 failed"
+    assert coefficient(6) == "The grade of the selected substance must be between 1 and 5", "Test 2 failed"
+    #Test 3 : if the user enters an argument of the wrong type (float, string, none)
+    assert coefficient(3.5) == "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
+    assert coefficient("3")== "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
+    assert coefficient(None)== "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
