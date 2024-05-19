@@ -241,10 +241,37 @@ def coefficient(grade_substance : int)-> int:
         print("The grade of the selected substance must be and integer number between 1 and 5") # message of error when the argument is not an integer
 
 
-#il faut encore que je mette la bonne mise en page, les commentaires et que je modifie les arguments
+def grading(barcode : str, path_to_database1 : str, path_to_database2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int)->float:
+    """
+    Returns a float number corresponding to the garde of the product scanned out of ten. 
 
-def grading(barcode : str, csv_file1 : str, csv_file2: str,grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int):
-    
+    Parameters
+    ----------
+    barcode : str
+        A number string representing a barcode of a cosmetic.
+    path_to_database1 : str
+        One of our databases which contains barcodes in a row named "code" and
+        ingredients of the barcode product in a row named "ingredients_text".
+    path_to_database2 : str
+        Another one of our databases which contains names of dangerous compounds in the column "cmpdname",
+        synonyms of those compounds in "cmpdsynonym", and their type(s) of dangers in the column "dangers" (Paraben, Carcinogenic, or Endocrine).
+    grade_paraben : int
+        A integer corresponding to the importance of paraben for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
+    grade_carcinogenic : int
+        A integer corresponding to the importance of carcinogenic products for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
+    grade_endocrine : int
+        A integer corresponding to the importance of endocrine for the user. Is between 1 and 5 (between 1 and 5 with 1 being little, 3 medium and 5 a lot).
+
+    Returns
+    -------
+    float
+        A float describing the garde of the product out of ten. 
+
+    Examples
+    --------
+    >>> grading('667556796483', 'database_products.csv', 'database_dangers.csv', 4, 3, 3)
+    1.5
+    """
     #Extraction of the dictionary containing the count of each dangerous product (ex: {'Paraben': 3, 'Carcinogenic': 4, 'Endocrine': 0})
     dangers = amount_dangers(danger_list(barcode,csv_file1,csv_file2), grade_paraben, grade_carcinogenic, grade_endocrine)
     
