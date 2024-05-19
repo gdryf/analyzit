@@ -374,14 +374,16 @@ def graph_grades(barcode : str, grade_paraben : int, grade_carcinogenic : int, g
     index_products.append(len(grades_products))# Adds the index of the barcode to the list of indexes
     
     # Associates a colour corresponding to the commentary of the grade to the barcode
-    colour = {
-        "very good": "green",
-        "good": "yellow",
-        "average": "orange",
-        "bad": "red"
-    }[commentary(barcode ,grade_paraben, grade_carcinogenic, grade_endocrine)]
+    if grade == 10:
+        colour = "green"
+    elif 7 <= grade <= 9:
+        colour = "yellow"
+    elif 4 <= grade <= 6:
+        colour = "orange"
+    else:
+        colour = "red"
     # Adds a bar of the colour corresponding to the commentary
-    plt.bar(index_products[-1], grades_products[-1])
+    plt.bar(index_products[-1], grades_products[-1],color=coulour))
     
     # Adds labels to the axes and a title to the barplot
     plt.xlabel('Index of product')
