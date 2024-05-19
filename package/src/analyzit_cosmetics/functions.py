@@ -3,7 +3,7 @@ import pandas as pd
 import os
 def search_ingredients(barcode : str,  path_to_database1 = None ) -> list:
     """
-    Return a list that contains the ingredients corresponding to the barcode entered.
+    Returns a list that contains the ingredients corresponding to the barcode entered.
 
     Parameters 
     ----------
@@ -320,5 +320,67 @@ def commentary(barcode : str,grade_paraben : int, grade_carcinogenic : int, grad
     else:
         return f"The product you scanned is bad. The grade of this product is: {grade}"
 
+def initialize_graph_grades() :
+    """
+    Initializes empty lists : grades_products and index_products to be able to show all the products on the same graph.
+
+    Parameters 
+    ----------
+    None
+    
+    Returns 
+    -------
+    grades_products : list
+        Empty list.
+
+    index_products : list
+        Empty list.
+    """
+    grades_products = []
+    index_products=[]
+    return grades_products,index_products
+
+def graph_grades(barcode : str, grades_products : list ,index_products : list ): 
+    """
+    Creates a graph (barplot) that can show all the grades of the ingredients entered and their commentary with colours.
+
+    Parameters 
+    ----------
+    barcode : str
+        A number string representing a barcode of a cosmetic.
+      
+    grades_products : list
+        List that stocks all of the barcodes entered to be able to show their grades on the graph.
+
+    index_products : list
+        List that stocks all the indexes of the barcodes entered to be able to show how much products are represented in the graph.
+
+    Returns 
+    -------
+    None
+    """
+    grade = grading(barcode,grade_paraben, grade_carcinogenic, grade_endocrine) # Gets the grade associated to the barcode entered
+    # Ajouter la note et le numéro du produit aux listes
+    grades_products.append(grade) # Adds the grade obtained to the list of grades
+    index_products.append(len(grades_products))# Adds the index of the barcode to the list of indexes
+    
+    # Associates a colour corresponding to the commentary of the grade to the barcode
+    colour = {
+        "very good": "green",
+        "good": "yellow",
+        "average": "orange",
+        "bad": "red"
+    }[commentary(barcode ,grade_paraben, grade_carcinogenic, grade_endocrine)]
+    # Adds a bar of the colour corresponding to the commentary
+    plt.bar(index_products[-1], grades_products[-1])
+    
+    # Adds labels to the axes and a title to the barplot
+    plt.xlabel('Index of product')
+    plt.ylabel('Grade')
+    plt.title('Barplot of the grades of your products')
+    
+    # Defines the units of the axes
+    plt.xticks(range(1, len(grades_products) + 1))
+    plt.yticks(range(1, 11))
 
     
