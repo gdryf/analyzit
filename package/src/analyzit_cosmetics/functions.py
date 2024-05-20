@@ -316,9 +316,9 @@ def commentary(barcode : str,grade_paraben : int, grade_carcinogenic : int, grad
     #Conditions to determine the commetaries of the grades and return the appropriate one.
     if grade==10:
         return f"The product you scanned is very good. The grade of this product is: {grade}"
-    elif 7<=grade<=9:
+    elif 7<=grade<10:
         return f"The product you scanned is good. The grade of this product is: {grade}"
-    elif 4<=grade<=6:
+    elif 4<=grade<7:
         return f"The product you scanned is average. The grade of this product is: {grade}"
     else:
         return f"The product you scanned is bad. The grade of this product is: {grade}"
