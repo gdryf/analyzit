@@ -17,15 +17,17 @@ Analysis of the composition of cosmetics, customizable grading system of their d
 ## 🔥 Usage
 
 ```python
-from mypackage import main_func
+from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers, coefficient, grading, commentary, graph_grades
 
-# One line to rule them all
-result = main_func(data)
+# Obtains the grade corresponding to the baarcode of the produc
+grade_product = grading (barcode, grade_paraben, grade_carcinogenic, grade endocrine)t
+# Initializes empty lists for the barplot
+grades_products = []
+index_products = []
+# Add the grade of the barcode on the barplot that tracks grades
+add_grade_graph = graph_grades (barcode, grade_paraben, grade_carcinogenic, grade endocrine)
+
 ```
-
-This usage example shows how to quickly leverage the package's main functionality with just one line of code (or a few lines of code). 
-After importing the `main_func` (to be renamed by you), you simply pass in your `data` and get the `result` (this is just an example, your package might have other inputs and outputs). 
-Short and sweet, but the real power lies in the detailed documentation.
 
 ## 👩‍💻 Installation
 
