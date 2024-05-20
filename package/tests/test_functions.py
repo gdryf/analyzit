@@ -56,13 +56,13 @@ def test_grading():
 
 def test_commentary():
     #Test 1 : the product scanned has a grade of 10
-    assert commentary('3661434003394', 'database_products.csv', 'database_dangers.csv', 3, 3, 3)== 'The product you scanned is very good. The grade of this product is: 10', "Test 1 failed"
+    assert commentary('3661434003394', 3, 3, 3)== 'The product you scanned is very good. The grade of this product is: 10', "Test 1 failed"
     #Test 2 : the producct scanned has grade between 10 and 7 (10 not included)
-    assert commentary('3014230002601','database_products.csv', 'database_dangers.csv', 3, 1, 3)== 'The product you scanned is good. The grade of this product is: 9.5', "Test 2 failed"
+    assert commentary('3014230002601', 3, 1, 3)== 'The product you scanned is good. The grade of this product is: 9.5', "Test 2 failed"
     #Test 3 : the product scanned has a grade between 7 and 4 (7 not included)
-    assert commentary('667556796483', 'database_products.csv', 'database_dangers.csv', 2, 1, 3)== 'The product you scanned is average. The grade of this product is: 5.75', "Test 3 failed"
+    assert commentary('667556796483', 2, 1, 3)== 'The product you scanned is average. The grade of this product is: 5.75', "Test 3 failed"
     #Test 4 : the product scanned has a grade lower than 4
-    assert commentary('667556796483', 'database_products.csv', 'database_dangers.csv', 3, 3, 3)== 'The product you scanned is bad. The grade of this product is: 3', "Test 4 failed"
+    assert commentary('667556796483', 3, 3, 3)== 'The product you scanned is bad. The grade of this product is: 3', "Test 4 failed"
     
 
 import matplotlib.pyplot as plt
