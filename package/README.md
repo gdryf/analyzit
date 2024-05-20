@@ -19,14 +19,17 @@ Analysis of the composition of cosmetics, customizable grading system of their d
 ```python
 from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers, coefficient, grading, commentary, graph_grades
 
-# Obtains the grade corresponding to the baarcode of the produc
-grade_product = grading (barcode, grade_paraben, grade_carcinogenic, grade endocrine)t
+# Obtains the grade corresponding to the baarcode of the product
+grade_product = grading (barcode, grade_paraben, grade_carcinogenic, grade endocrine)
+
 # Initializes empty lists for the barplot
 grades_products = []
 index_products = []
-# Add the grade of the barcode on the barplot that tracks grades
-add_grade_graph = graph_grades (barcode, grade_paraben, grade_carcinogenic, grade endocrine)
 
+# Initiates the barplot, adds the grade of the barcode to it and shows it
+plt.figure()
+add_grade_graph = graph_grades (barcode, grade_paraben, grade_carcinogenic, grade endocrine)
+plt.show()
 ```
 
 ## 👩‍💻 Installation
