@@ -1,6 +1,6 @@
 import pytest
 
-from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers, coefficient, graph_grades
+from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers, coefficient, grading, graph_grades
 def test_search_ingredients():
     # Test 1 : if the barcode is found
     assert search_ingredients('3014230002601') == ['Aqua', 'Hydrogenated Starch Hydrolysate', 'Hydrated Silica', 'Zinc Citrate', 'Sodium Lauryl Sulfate', 'Aroma', 'Cellulose Gum', 'Sodium Fluoride', 'Sodium Saccharin', 'Mentha Arvensis Leaf Oil', 'Mentha Piperita Oil', 'Mentha Spicata Flower/Leaf/Stem Oil', 'CI 42051.'], "Test 1 failed "
@@ -44,6 +44,16 @@ def test_coefficient():
     assert coefficient(3.5) == "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
     assert coefficient("3")== "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
     assert coefficient(None)== "The grade of the selected substance must be and integer number between 1 and 5", "Test 3 failed"
+
+def test_grading():
+    barcode = '667556796483'
+    #Test 1 : grade without coefficient (all coefficients =1)
+    assert grading(barcode, 3,3,3)==3, "Test 1 failed"
+    #Test 2 : grade with different coefficients
+    assert grading(barcode, 4,3,2)==1.5, "Test 2 failed"
+    #Test 3 : when the grade is negative
+    assert grading(barcode, 3,5,3)==0, "Test 3 failed"
+
 
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
