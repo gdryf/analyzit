@@ -20,7 +20,7 @@ Analysis of the composition of cosmetics, customizable grading system of their d
 from src.analyzit_cosmetics import search_ingredients, danger_list, amount_dangers, coefficient, grading, commentary, graph_grades
 
 # Obtains the grade corresponding to the baarcode of the product
-grade_product = grading (barcode, grade_paraben, grade_carcinogenic, grade endocrine) # All of the arguments need to be filled by the user
+grade_product = grading (barcode, grade_paraben, grade_carcinogenic, grade_endocrine) # All of the arguments need to be filled by the user
 
 # Initializes empty lists for the barplot
 grades_products = []
@@ -28,7 +28,7 @@ index_products = []
 
 # Initiates the barplot, adds the grade of the barcode to it and shows it
 plt.figure()
-add_grade_graph = graph_grades (barcode, grade_paraben, grade_carcinogenic, grade endocrine) # All of the arguments need to be filled by the user
+add_grade_graph = graph_grades (barcode, grade_paraben, grade_carcinogenic, grade_endocrine) # All of the arguments need to be filled by the user
 plt.show()
 ```
 
