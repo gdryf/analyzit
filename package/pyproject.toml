@@ -8,7 +8,10 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
 description = "Analysis of the composition of cosmetics and tracking of how dangerous are the products used by the user."
-dependencies = [ "rdkit","pandas>=1.0.0","seaborn>=0.11.1","matplotlib >=3.3.2"
+dependencies = [
+    "pandas>=1.0.0",
+    "seaborn>=0.11.1",
+    "matplotlib >=3.3.2",
 ]
 authors = [
     {name = "Gillian", email = "gillian.dreyfus@epfl.ch"}
