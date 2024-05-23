@@ -108,7 +108,7 @@ def danger_list(barcode : str,  path_to_database1 = None,  path_to_database2 = N
 def amount_dangers(dangerous_ingredients : dict , grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int ) -> dict:
     """
     Returns a dictionary that contains the types of dangers and their amount corresponding to a dict of ingredients and dangers 
-    using the grades given by the function A COMPLETER
+    using the grades given by the function coefficient
 
     Parameters 
     ----------
