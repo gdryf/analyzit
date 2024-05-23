@@ -112,8 +112,8 @@ def amount_dangers(dangerous_ingredients : dict , grade_paraben : int, grade_car
 
     Parameters 
     ----------
-    barcode : str
-        Barcode of the product analyzed
+    dangerous_ingredients : dict
+        Dicitonary conatining containing all of the dangerous compounds of the cosmetic and their type(s) of danger.
       
     grade_paraben, grade_carcinogenic and grade_endocrine : int
         The grades provided by the user which define how the types of dangers will be prioritized.
