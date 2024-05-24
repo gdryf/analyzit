@@ -1,3 +1,3 @@
 # Notebooks
 
-Folder to place your `.pynb` notebooks.
+This folder contains our project report analyzit_report.ipynb
