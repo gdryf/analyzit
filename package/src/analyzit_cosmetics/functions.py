@@ -108,12 +108,12 @@ def danger_list(barcode : str,  path_to_database1 = None,  path_to_database2 = N
 def amount_dangers(dangerous_ingredients : dict , grade_paraben : int, grade_carcinogenic : int, grade_endocrine : int ) -> dict:
     """
     Returns a dictionary that contains the types of dangers and their amount corresponding to a dict of ingredients and dangers 
-    using the grades given by the function A COMPLETER
+    using the grades given by the function coefficient
 
     Parameters 
     ----------
-    barcode : str
-        Barcode of the product analyzed
+    dangerous_ingredients : dict
+        Dicitonary conatining containing all of the dangerous compounds of the cosmetic and their type(s) of danger.
       
     grade_paraben, grade_carcinogenic and grade_endocrine : int
         The grades provided by the user which define how the types of dangers will be prioritized.
