@@ -1,7 +1,6 @@
 import csv
 import pandas as pd
 import os
-import seaborn as sns
 import matplotlib.pyplot as plt
 
 def search_ingredients(barcode : str,  path_to_database1 = None ) -> list:
